@@ -29,19 +29,14 @@
   font-weight: bold;
   margin: 0;
 }
-/* 
-.characters-thumb {
-  overflow: hidden;
-  flex-shrink: 0;
-  width: 2em;
-  height: 2em;
-  background-color: #e8e8e8;
-  padding: 0.5em;
-  margin-right: 0.5em;
-}
 
-.characters-thumb img {
-  display: block;
-  width: 100%;
-  height: auto;
-} */
+.taskCount {
+  display: flex;
+  place-items: center;
+  justify-content: flex-end;
+}
+.editBtn {
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+}
