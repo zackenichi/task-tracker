@@ -6,12 +6,8 @@ import { Container } from "@material-ui/core";
 import { TaskData } from "./Components/TaskData";
 import Card from "@material-ui/core/Card";
 import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
-import CardContent from "@material-ui/core/CardContent";
-import Chip from "@material-ui/core/Chip";
-import CheckBoxOutlinedIcon from "@material-ui/icons/CheckBoxOutlined";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
 import "./App.css";
+import CardComponent from "./Components/CardComponent";
 
 // const itemsFromBackend = [
 //   { id: uuid(), content: "First task" },
@@ -132,64 +128,32 @@ function App() {
                                     index={index}
                                   >
                                     {(provided, snapshot) => {
+                                      console.log('PROVIDED', provided);
                                       return (
                                         <Card
-                                          onClick={() =>
-                                            console.log("card clicked")
-                                          }
-                                          variant="outlined"
-                                          className={classes.root}
-                                          ref={provided.innerRef}
-                                          {...provided.draggableProps}
-                                          {...provided.dragHandleProps}
-                                          style={{
-                                            userSelect: "none",
+                                            onClick={() =>
+                                              console.log("card clicked")
+                                            }
+                                            variant="outlined"
+                                            className={classes.root}
+                                            ref={provided.innerRef}
+                                            {...provided.draggableProps}
+                                            {...provided.dragHandleProps}
+                                            style={{
+                                              userSelect: "none",
 
-                                            backgroundColor: snapshot.isDragging
-                                              ? "#F0F0F0"
-                                              : "#FFFFFF",
-                                            ...provided.draggableProps.style,
-                                          }}
-                                        >
-                                          <CardContent>
-                                            <Grid container>
-                                              <Grid item xs={9}>
-                                                <Typography
-                                                  className={classes.title}
-                                                  gutterBottom
-                                                  variant="h5"
-                                                  component="h2"
-                                                  color="textPrimary"
-                                                >
-                                                  {item.title}
-                                                </Typography>
-                                              </Grid>
-                                              <Grid
-                                                item
-                                                xs={3}
-                                                className="editBtn"
-                                              >
-                                                <MoreVertIcon
-                                                  onClick={() =>
-                                                    console.log("Edit")
-                                                  }
-                                                />
-                                              </Grid>
-                                            </Grid>
-                                            <Grid container spacing={3}>
-                                              <Grid item xs>
-                                                <Chip label={item.taskdate} />
-                                              </Grid>
-                                              <Grid
-                                                item
-                                                xs
-                                                className="taskCount"
-                                              >
-                                                <CheckBoxOutlinedIcon />
-                                                {item.done} / {item.taskcount}
-                                              </Grid>
-                                            </Grid>
-                                          </CardContent>
+                                              backgroundColor: snapshot.isDragging
+                                                ? "#F0F0F0"
+                                                : "#FFFFFF",
+                                              ...provided.draggableProps.style,
+                                            }}
+                                          >
+                                            <CardComponent 
+                                              onProvided={provided} 
+                                              onClasses={classes} 
+                                              onItem={item} 
+                                              onSnapshot={snapshot}
+                                            />
                                         </Card>
                                       );
                                     }}
