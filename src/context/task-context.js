@@ -7,14 +7,9 @@ export const TaskContext = React.createContext({
   todo: [],
   inProgress: [],
   done: [],
-  moveTodo: (task)=>{},
-  moveInProgress: (task)=>{},
-  moveToDone: (task)=>{},
   deleteTask: (taskContainerName, taskId)=>{},
   addNewTask: (newTask)=>{},
-  updateAllTasks: ({todo, inProgress, done}) => {
-
-  }
+  updateAllTasks: ({todo, inProgress, done}) => {}
 })
 
 // 2.) will wrap this around the index to provide all state to the app
@@ -77,7 +72,7 @@ export const TaskContextProvider = (props) => {
 
 
   const addNewTask = ( newTask ) => {
-    console.log('newTask', newTask)
+
     if ( newTask.status === TASK_STATUS.todo ) {
       setTodo((prevState)=>{
         return [...prevState, newTask]
